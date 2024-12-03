@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in &#x2022; Instagram</title>
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png"
+      type="image/x-icon"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="body-page">
+      <div class="img-container">
+        <img
+          class="img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1024px-Instagram_logo.svg.png"
+        />
+      </div>
+      <div>
+        <div>
+          <input
+            class="user-id"
+            type="text"
+            placeholder="phone number,username or email address"
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <input
+            class="pass"
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+            oninput="toggleButtonState()"
+          />
+          <button
+            class="show"
+            id="showButton"
+            onclick="togglePassword()"
+            style="display: none"
+          >
+            Show
+          </button>
+        </div>
+        <div>
+          <form action="action-page.html" method="post"></form>
+          <button type="submit" class="login-button">Log in</button>
+        </div>
+        <div>
+          <p class="or">OR</p>
+        </div>
+        <div>
+          <p class="fb">
+            <a href="#" class="fa fa-facebook"></a>Log in with Facebook
+          </p>
+        </div>
+        <div>
+          <p class="forg">Forgotten Your Password</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      function togglePassword() {
+        const passwordField = document.getElementById("password");
+        const button = document.getElementById("showButton");
+
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+          button.textContent = "Hide";
+        } else {
+          passwordField.type = "password";
+          button.textContent = "Show";
+        }
+      }
+
+      function toggleButtonState() {
+        const passwordField = document.getElementById("password");
+        const button = document.getElementById("showButton");
+
+        // Show the button only when there is text in the password field
+        if (passwordField.value.length > 0) {
+          button.style.display = "inline-block"; // Make the button visible
+        } else {
+          button.style.display = "none"; // Hide the button
+        }
+      }
+    </script>
+    <div class="last">
+      <p>Don't have an account? <strong class="sign">Sign up</strong></p>
+    </div>
+  </body>
+</html>
